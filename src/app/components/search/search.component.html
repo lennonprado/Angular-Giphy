@@ -1,0 +1,10 @@
+<p>search works!</p>
+
+
+<input name="search" #searchInput>
+<button (click)="search(searchInput)">Search</button>
+
+
+<div *ngFor="let item of gifResults">
+    <img src="{{item.images.original.url}}">
+</div>
