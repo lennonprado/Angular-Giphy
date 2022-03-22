@@ -1,10 +1,22 @@
-<p>search works!</p>
+<form #userlogin = "ngForm" (ngSubmit) = "search()" >
+<div class="search-container">
+   
+<input name="search" (change)="reset()" #searchInput [(ngModel)]="query" placeholder="Search all the GIFs ">
+<button type="submit"><mat-icon>search</mat-icon></button>
+
+</div>
+</form>
 
 
-<input name="search" #searchInput>
-<button (click)="search(searchInput)">Search</button>
 
+<result-grid *ngIf="gifResults.length > 0; "  [gifResults]="gifResults" ></result-grid>
 
-<div *ngFor="let item of gifResults">
-    <img src="{{item.images.original.url}}">
+<p *ngIf="noresult" class="no-result">No GIFs found for {{ query }}</p>
+
+<div class="next-actions" *ngIf="gifResults.length > 0">
+    <button class="reset" (click)="reset()">Reset</button>
+    <button class="search" (click)="search()" *ngIf="gifResults.length < total;else no_more_results">Load More</button>
+
+    <ng-template #no_more_results><div class="no-result">There aren't more elements to display</div></ng-template>
+
 </div>

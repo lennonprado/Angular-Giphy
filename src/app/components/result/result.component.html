@@ -1,1 +1,5 @@
-<p>result works!</p>
+<div class="result-grid">
+    <div class="image-container" *ngFor="let item of gifResults">
+        <img src="{{item.images.original.url}}">
+    </div>
+</div>

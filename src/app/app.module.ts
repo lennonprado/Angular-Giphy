@@ -7,18 +7,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultComponent } from './components/result/result.component';
 import { SearchComponent } from './components/search/search.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
